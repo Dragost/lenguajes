@@ -72,7 +72,7 @@
            var myData = 'connect=1';
            jQuery.ajax({
            type: "POST",
-           url: "http://dragost.com/api/ejemploroland/login",
+           url: "<?php echo base_url('login'); ?>",
            dataType:"json",
            crossDomain: true,
            data:myData,

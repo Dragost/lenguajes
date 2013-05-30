@@ -33,7 +33,7 @@
             </ul>
 			<ul class="nav pull-right">
 			  <?php if (!isset($usuario)): ?>
-        <li id="dr_login"><a href="javascript:void(0);" onclick="fb_login();">Login</a></li>
+        <li id="dr_login"><a href="javascript:void(0);" onclick="fb_login();"><img src="<?php echo base_url('img/fb.png'); ?>"></img>Login</a></li>
 			  <?php else: ?>
 				
         <li class="dropdown">
