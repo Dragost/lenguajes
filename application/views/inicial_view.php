@@ -1,65 +1,81 @@
 <?php require_once('skin/header.php'); ?>
 
 
-	
-	<div class="container">
-    <div class="hero-unit">
+	<section>
+  	<div class="container">
+      <div class="hero-unit">
 
-      <div class="row">
-        <?php 
-       // echo time_elapsed("2013-05-19T07:50:32+0000");
-        foreach ($facebook['data'] as $key => $value) {
-        ?>
-
-          <div class="span12 big">
-            <div class="padding20">
-
-          <?
-
-          print_r($value);
-
-          echo time_elapsed($value['created_time']);
-          ?>
-            </div>
+        <div class="row">
+          <div class="span12 title">
+            <center>
+              <img src="<?php echo base_url('img/title.png'); ?>">
+            </center>
           </div>
-          <?
+          <?php 
+          $c = 0;
+          foreach ($facebook['data'] as $key => $value) {
+           
+          ?>
+            <article>
+              <div class="span12 big">
+                <div class="padding20">
+                  <div style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background: rgba(0,0,0,.75); overflow: hidden;  color: rgb(231, 222, 222);">
+                    <div class="padding20" style="overflow: hidden;">
+                      <div style="overflow: hidden; margin-bottom: 15px;">
+                        <div style="float: left;">
+                          <img style="float:left;" src="http://graph.facebook.com/<?=$value['from']['id'];?>/picture?type=square"></img>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                          <h4 style="float:left;"><?=$value['from']['name'];?></h4>
+                        </div>
+                        <h4 class="pull-right">Hace <?=time_elapsed($value['created_time']);?></h4>
+                      </div>
+                      <div>
+                       <?php if(isset($value['picture'])): ?>
 
-        }
-        ?>
+                          <img style="<?=(is_float($c/2)) ? 'float:left;' : 'float:right;'; ?> max-width: 300px;" src="<?=substr($value['picture'], 0, -5)."n.jpg";?>"></img>
+                          <? $c++; ?>
+                        <?php endif; ?>
+
+                      </div>
+                    </div>
+                  </div>
+              <?
+
+              print_r($value);
 
 
-      </div>
-		</div>
-	</div>
+              
+              ?>
+                </div>
+              </div>
+            </article>
+            <?
+
+          }
+          ?>
 
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+        </div>
 
-    <div class="container marketing">
+        <div class="padding20">
+          <ul class="pager">
+            <li class="previous">
+              <a href="#">&larr; Nuevas</a>
+            </li>
+            <li class="next">
+              <a href="#">Viejas &rarr;</a>
+            </li>
+          </ul>
+        </div>
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div><!-- /.span4 -->
-      </div><!-- /.row -->
+        <div>
+
+  		</div>
+  	</div>
+  </section>
+
+
 
 
 

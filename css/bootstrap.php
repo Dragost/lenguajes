@@ -1,4 +1,11 @@
+<?php
+    header("Content-type: text/css; charset: UTF-8");
+	
+
+?>
+
 /*!
+
  * Bootstrap v2.3.2
  *
  * Copyright 2012 Twitter, Inc
@@ -222,12 +229,16 @@ textarea {
 }
 
 body {
+  background-image: url('../img/bg1.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 150px 0 0 0;
+  background-attachment: fixed;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
 }
 
 a {
@@ -258,6 +269,7 @@ a:focus {
 }
 
 .img-circle {
+  height: 122px;
   -webkit-border-radius: 500px;
      -moz-border-radius: 500px;
           border-radius: 500px;
@@ -6125,12 +6137,13 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 20px;
+  /*padding: 20px;*/
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   color: inherit;
+  background-image: url('../img/extra_clean_paper.png');
   background-color: #eeeeee;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
@@ -6171,4 +6184,62 @@ a.badge:focus {
 
 .affix {
   position: fixed;
+}
+
+#map-canvas {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 250px;
+}
+
+/** FIX BOOTSTRAP CON GOOGLE-MAP **/
+#mapCanvas label { width: auto; display:inline; }
+#mapCanvas img { max-width: none; }
+.gm-style img { max-width: none; }
+.gm-style label { width: auto; display: inline; }
+/** FIX BOOTSTRAP CON GOOGLE-MAP **/
+
+.margin-top{
+  margin-top: 70px;
+}
+
+.padding20{
+  padding: 20px;
+}
+
+.padding20-foot{
+  padding: 10px 20px 10px;
+}
+.margin10bot{
+  margin-bottom: 10px;
+}
+
+.map-outer{
+  padding: 6px;
+  border: 1px solid #ccc;
+  clear: both;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-box-shadow: 0 0 6px #ddd;
+  -webkit-box-shadow: 0 0 6px #ddd;
+}
+
+.title{
+  overflow: visible;
+  height: 0px;
+  margin-top: -102px;
+  margin-bottom: 120px;
+}
+
+div.foot{
+  background: white;
+  padding: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

@@ -7,13 +7,15 @@ class Users extends CI_Model {
     }
 
     public function verify_existencia($uid) {
+
     	$data = $this->db->query("SELECT * FROM usuarios WHERE fbid = $uid");
-		return $data->result();
+		  return $data->result();
     	
     }
 
 
     public function alta_usuarios($fields) {
+
       $data = array(
         'nombre' => $fields['name'],
         'apellidos' => $fields['surname'],
@@ -21,11 +23,29 @@ class Users extends CI_Model {
         'username' => $fields['username'],
         'email' => $fields['email'],
         'genero' => $fields['gender'],
-        'birthdate' => $fields['birthdate']
+        'birthdate' => $fields['birthdate'],
+        'token' => $fields['token']
         );
 
 
       $this->db->insert('usuarios', $data);
+
+    }
+
+    public function update_token($fields) {
+
+      $this->db->where('fbid', $fields['facebook_id']);
+      $data = array(
+        'nombre' => $fields['name'],
+        'apellidos' => $fields['surname'],
+        'fbid' => $fields['facebook_id'],
+        'username' => $fields['username'],
+        'email' => $fields['email'],
+        'genero' => $fields['gender'],
+        'birthdate' => $fields['birthdate'],
+        'token' => $fields['token']
+        );
+      $this->db->update('usuarios', $data);
 
     }
 

@@ -7,33 +7,38 @@ class Inicial extends CI_Controller {
 	}
 
 	public function index(){
-
+		$this->load->helper('face');
 		if($fb_id = $this->session->userdata('logged_id')) {
 			// aqui cualquier.... cuando esta el usuario logeado
 			$this->load->model('users', 'usuarios', true);
 			$get_usuario = $this->usuarios->verify_existencia($fb_id);
 			$data['usuario'] = $get_usuario[0];
 
-			 $datas = file_get_contents("https://graph.facebook.com/225517524253746/feed?limit=25&since=1362850368&access_token=CAACEdEose0cBAJFNaZBKliNWJTZBoXFC4uhruklub6fZAufLsZAHuKfTT4o5mFBH9ZBLxjHC3Ey0QgLBSsWbeLLuo3DW5a8uZCmdIwxYPrppfnkzbqj8VJWXqHyUm6wOMwtoq9tyg9kgZBhlVJCi2Og4d9xozZCgF2eg9GZBhvjCoTgZDZD");
-
-        $array = json_decode($datas, true);
-
-        $data['facebook'] = array();
-                foreach ($array['data'] as $key => $value) {
-           array_push($data['facebook'], $value['from']['name']);
-        }
-			$this->load->view('pagina_inicio', $data);
+			$data['facebook'] = $this->get_face();
+			
+			$this->load->view('inicial_view', $data);
+			//
 			
 		} else {
-
-			$this->load->view('pagina_inicio');
+			$data['facebook'] = $this->get_face();
+			$this->load->view('inicial_view', $data);
 		}
-		
+
+
+	}
+
+
+	private function get_face() {
+		define('FB_APP_ID', '366764916762934');
+		define('FB_APP_SECRET', '89de063a91d6fd5735ed17b434e42c28');
+
+		$config = array('appId' => FB_APP_ID, 'secret' => FB_APP_SECRET);
+	
+		$this->load->library("facebook", $config);
 
 		
 
-
-
+		return $this->facebook->api('225517524253746/posts?fields=message,from,picture,created_time&locale=es_ES'); //225517524253746/posts?limit=10&since=1362850368&locale=es_ES
 	}
 }
 

@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 
  	if($this->input->post('connect')) {
 
-define('FB_APP_ID', '366764916762934');
+        define('FB_APP_ID', '366764916762934');
 		define('FB_APP_SECRET', '89de063a91d6fd5735ed17b434e42c28');
 
 		$config = array('appId' => FB_APP_ID, 'secret' => FB_APP_SECRET);
@@ -25,6 +25,7 @@ define('FB_APP_ID', '366764916762934');
 			try {
 				$me = $this->facebook->api('/me');
 				$uid = $this->facebook->getUser();
+                $a_t = $this->facebook->getAccessToken();
                 $photo = $this->facebook->api('/me/?fields=picture');
 			} catch (FacebookApiException $e) {
 				error_log($e);
@@ -68,26 +69,32 @@ define('FB_APP_ID', '366764916762934');
         'email' => $me['email'],
         'gender' => $gender,
         'location_id' => $location,
-        'birthdate' => (isset($me['birthday'])) ? date_format(date_create($me['birthday']), 'Y-m-d') : ''
+        'birthdate' => (isset($me['birthday'])) ? date_format(date_create($me['birthday']), 'Y-m-d') : '',
+        'token' => $a_t
         );
 
 
     // here we go...
     $this->load->model('users', 'usuarios', true);
     if($this->usuarios->verify_existencia($uid)) {
-    	$this->session->set_userdata('logged_id', $uid);	
+        $this->usuarios->update_token($facebook_data);
+    	$this->session->set_userdata(
+            array(
+                'logged_id' => $uid, 
+                'nombre' => $me['first_name'],
+                'email' => $me['email'],
+                'token' => $a_t
+                ));	
     } else {
     	$this->usuarios->alta_usuarios($facebook_data);
-    	$this->session->set_userdata('logged_id', $uid);	
+    	$this->session->set_userdata(
+            array(
+                'logged_id' => $uid, 
+                'nombre' => $me['first_name'],
+                'email' => $me['email'],
+                'token' => $a_t
+                ));	
     }
-
-
-
-    
-
-    print_r(json_encode(array('logged' => 1)));
-
-
 
 
  	} else {
@@ -95,15 +102,8 @@ define('FB_APP_ID', '366764916762934');
  	}
 
 
-
-
  }
 
-
-
- public function prueba() {
-       
-    }   
 
 }	
 ?>
