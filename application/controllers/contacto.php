@@ -4,21 +4,54 @@ class Contacto extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('form_validation');
+		$this->load->helper(array('url','form'));
+    	$this->load->model('Captcha','',TRUE);
 	}
 
 	public function index(){
 
-		$this->load->library('form_validation');
 
+		// reglas de validacion
 		$this->form_validation->set_rules('name', 'Usuario', 'trim|min_length[5]|max_length[20]|required');
 		$this->form_validation->set_rules('mail', 'Correo', 'required|valid_email');
 		$this->form_validation->set_rules('subject', 'Asunto', 'trim|max_length[50]|required');
 		$this->form_validation->set_rules('message', 'Mensaje', 'trim|max_length[500]|required');
-
+	    $this->form_validation->set_rules('captcha','Captcha','required|callback_captcha_check');
+	    $this->form_validation->set_message('captcha_check','El código ingresado no es válido');
 
 		if($this->form_validation->run() == false) {
-			$this->load->view('contacto_view');
+
+			// Creacion del Captcha
+	        $this->load->helper('captcha');
+	 
+	        $vals = array(
+	            'img_path'   => './captcha/',
+	            'img_url'    => base_url("captcha").'/',
+	            'font_path'  => './captcha/fonts/3.ttf',
+	            'img_width'  => '280',
+	            'img_height' => 50,
+	            'expiration' => 3600 // 1 hora
+	        );
+	 
+	        $cap = create_captcha($vals);
+	 		
+
+	        // se agrega el captcha a la base de datos
+	        $captcha_info = array (
+	            'captcha_time' => $cap['time'],
+	            'ip_address' => $this->input->ip_address(),
+	            'word' => $cap['word']
+	        );
+	 
+	        $this->Captcha->insertCaptcha($captcha_info);
+	 
+	        $data['cap'] = $cap;
+
+
+			$this->load->view('contacto_view', $data);
 		} else {
+
 
 			$config = Array(
 			    'protocol' => 'smtp',
@@ -63,6 +96,14 @@ class Contacto extends CI_Controller {
 
 		return $plantilla;
 
+	}
+
+	function captcha_check(){
+
+	    $expiration = time()-7200; // Limite de dos horas
+	    $binds = array ($this->input->post('captcha'),$this->input->ip_address(),$expiration);
+	 
+	    return $this->Captcha->captchaExist($binds);
 	}
 
 	

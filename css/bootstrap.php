@@ -1973,7 +1973,7 @@ legend + .control-group {
 
 .form-horizontal .control-label {
   float: left;
-  width: 160px;
+  width: 120px;
   padding-top: 5px;
   text-align: right;
 }
@@ -1981,7 +1981,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 180px;
+  margin-left: 150px;
   *margin-left: 0;
 }
 
@@ -6190,7 +6190,7 @@ a.badge:focus {
   margin: 0;
   padding: 0;
   height: 100%;
-  height: 250px;
+  height: 300px;
 }
 
 /** FIX BOOTSTRAP CON GOOGLE-MAP **/
@@ -6200,8 +6200,19 @@ a.badge:focus {
 .gm-style label { width: auto; display: inline; }
 /** FIX BOOTSTRAP CON GOOGLE-MAP **/
 
+.map-outer{
+  padding: 6px;
+  border: 1px solid #ccc;
+  clear: both;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-box-shadow: 0 0 6px #ddd;
+  -webkit-box-shadow: 0 0 6px #ddd;
+}
+
 .margin-top{
-  margin-top: 70px;
+  margin-top: 120px;
 }
 
 .padding20{
@@ -6213,17 +6224,6 @@ a.badge:focus {
 }
 .margin10bot{
   margin-bottom: 10px;
-}
-
-.map-outer{
-  padding: 6px;
-  border: 1px solid #ccc;
-  clear: both;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-box-shadow: 0 0 6px #ddd;
-  -webkit-box-shadow: 0 0 6px #ddd;
 }
 
 .title{
@@ -6242,4 +6242,14 @@ div.foot{
   -moz-border-radius-topright: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+.margin15top{
+  margin-top: 50px;
+}
+
+.icon_mes{
+  height: 30px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }

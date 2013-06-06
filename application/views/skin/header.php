@@ -32,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Los Secretos de tu Almohada</a>
+            <a class="brand" href="<?php echo base_url(); ?>">Los Secretos de tu Almohada</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li <?php echo ($this->uri->segment(1) == '') ? 'class="active"' : ''; ?>><a href="<?php echo base_url(); ?>">Novedades</a></li>

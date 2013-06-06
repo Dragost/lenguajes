@@ -8,7 +8,7 @@
         <div class="row">
           <div class="span12 title">
             <center>
-              <img src="<?php echo base_url('img/title.png'); ?>">
+              <img src="<?=base_url('img/title.png'); ?>">
             </center>
           </div>
           <?php 

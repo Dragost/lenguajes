@@ -1,5 +1,24 @@
 <?php require_once('skin/header.php'); ?>
-
+<?php
+ 
+$frm = array (
+    'id' => 'frmContacto'
+);
+ 
+$frm_captcha = array (
+    'name' => 'captcha',
+    'id' => 'frCaptcha',
+    'captcha' => 'required'
+);
+ 
+$frm_enviar = array (
+    'name' => 'submit',
+    'id' => 'frSubmit',
+    'value' => 'Enviar',
+    'class' => 'submit'
+);
+ 
+?>
 
 	
 	<div class="container">
@@ -8,7 +27,7 @@
       <div class="row">
         <div class="span5">
           <div class="padding20">
-          <h2>Contacto</h2>
+          <h2><img src="<?=base_url('img/icon/vector/mail-outgoing.svg')?>" class="icon_mes">Contacto</h2>
             <form class="form-horizontal" method="post">
               <div class="control-group">
                 <label class="control-label" for="imputName">Nombre</label>
@@ -53,6 +72,24 @@
                   <?php endif; ?>
                 </div>
               </div>
+
+              <?php if(!isset($mess)): ?>
+              <div class="control-group">
+                <div class="controls">
+                  <?php echo $cap['image']; ?>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <input class="input-xlarge" name="captcha" type="text" placeholder="Captcha">
+                  <?php if(form_error('captcha')){
+                    echo form_error('captcha','<span class="label label-important">','</span>'); 
+                  } ?>
+                </div>
+              </div>
+              <?php endif; ?>
+
               <div class="control-group">
                 <div class="controls pull-right">
                   <button type="submit" class="btn btn-success">Enviar</button>
