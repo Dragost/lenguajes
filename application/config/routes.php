@@ -41,6 +41,7 @@
 $route['default_controller'] = "page";
 $route['404_override'] = '';
 $route['page/(:num)'] = "page/index/$1";
+$route['sitemap\.xml'] = "seo/sitemap";
 
 
 /* End of file routes.php */
