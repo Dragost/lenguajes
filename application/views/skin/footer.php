@@ -49,7 +49,7 @@
       	<div class="hero-unit">
       		<div class="padding20-foot">
 		        <p class="pull-right"><a href="#">Volver Arriba <i class="icon-chevron-up"></i></a></p>
-		        <p>&copy; 2013 Los Secretos de tu Almohada, 'Grupo Musical'. &middot; </p>
+		        <p>&copy; 2013 Los Secretos de tu Almohada, 'Grupo Musical'.</p>
 		    </div>
 	    </div>
       </footer>

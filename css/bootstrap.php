@@ -5991,6 +5991,7 @@ a.badge:focus {
 .carousel {
   position: relative;
   margin-bottom: 20px;
+  margin-top: 15px;
   line-height: 1;
 }
 
@@ -6367,4 +6368,15 @@ div.foot{
 
 .smile{
   margin-bottom: 10px;
+}
+
+.historia{
+  overflow: hidden;
+  color: rgb(213, 213, 213);
+  padding: 15px;
+  background: rgb(34, 67, 70);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow:inset 0 0 10px #000000;
 }

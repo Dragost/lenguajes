@@ -13,9 +13,8 @@
           </div>
           <?php 
           $c = 0;
-          foreach ($facebook as $key => $value) {
-           if($key == 0){continue;}
-          ?>
+          foreach ($facebook as $key => $value) { ?>
+
           <? if(isset($value['picture']) || isset($value['message']) || isset($value['link'])): ?>
               <article>
                 <div class="span12 big">
