@@ -14,8 +14,9 @@
             <div class="hero-unit">
             	<div class="padding20-foot">
 		            <h2>Ana María</h2>
-		            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-		            <p><a class="btn" href="#">Saber Más &raquo;</a></p>
+		            <p>Bienvenidos!! <hr> Os doy las gracias por entrar en nuestra web, yo soy la cantante de <strong>"Los Secretos de tu Almohada"</strong>, y os animo a saber más acerca de nosotros!! <hr> Estáis invitados a todos los conciertos.</p>
+		            <img class="smile" src="<?=base_url('img/smile.png'); ?>">
+		            <p><a class="btn" href="<?=base_url('historia'); ?>">Saber Más &raquo;</a></p>
 		        </div>
 	        </div>
           </center>
@@ -30,8 +31,8 @@
             <div class="hero-unit">
             	<div class="padding20-foot">
 		            <h2>Alberto</h2>
-		            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-		            <p><a class="btn" href="#">Ir a Portfolio &raquo;</a></p>
+		            <p>Desarrollador y Diseñador WEB<hr>Muchas gracias por visitar la Web que recientemente ha sido abierta. <br> Es posible que contenga algún fallo. <br> Si tuvierais algún problema, por favor poneros en contacto.<hr> Gracias</p>
+		            <p><a class="btn" href="http://dragost.com">Ir a Portfolio &raquo;</a></p>
 		        </div>
 	        </div>
           </center>
@@ -47,8 +48,8 @@
       <footer>
       	<div class="hero-unit">
       		<div class="padding20-foot">
-		        <p class="pull-right"><a href="#">Back to top</a></p>
-		        <p>&copy; 2013 Los Secretos de tu Almohada, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+		        <p class="pull-right"><a href="#">Volver Arriba <i class="icon-chevron-up"></i></a></p>
+		        <p>&copy; 2013 Los Secretos de tu Almohada, 'Grupo Musical'. &middot; </p>
 		    </div>
 	    </div>
       </footer>
@@ -161,14 +162,21 @@
     <script src="<?php echo base_url('js/bootstrap-collapse.js'); ?>"></script>
     <script src="<?php echo base_url('js/bootstrap-carousel.js'); ?>"></script>
     <script src="<?php echo base_url('js/bootstrap-typeahead.js'); ?>"></script>
-    <script>
-      !function ($) {
-        $(function(){
-          // carousel demo
-          $('#myCarousel').carousel()
-        })
-      }(window.jQuery)
-    </script>
+    <script src="<?php echo base_url('js/jquery.colorbox-min.js'); ?>"></script>
+
+    <script type="text/javascript">
+	    $(function () {
+	        $("[rel='tooltip']").tooltip();
+	    });
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			//Examples of how to assign the Colorbox event to elements
+			$(".lightbox").colorbox({transition:'none', retinaImage:true, retinaUrl:true});
+
+		});
+	</script>
     <script src="<?php echo base_url('js/holder/holder.js'); ?>"></script>
   </body>
 </html>

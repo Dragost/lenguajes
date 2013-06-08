@@ -6219,9 +6219,14 @@ a.badge:focus {
   padding: 20px;
 }
 
+.padding10{
+  padding: 10px;
+}
+
 .padding20-foot{
   padding: 10px 20px 10px;
 }
+
 .margin10bot{
   margin-bottom: 10px;
 }
@@ -6252,4 +6257,114 @@ div.foot{
   height: 30px;
   padding-bottom: 10px;
   padding-right: 10px;
+}
+
+.float_left{
+  float: left;
+  overflow: hidden;
+}
+
+.float_right{
+  float: right;
+  overflow: hidden;
+}
+
+.likes{
+  overflow: hidden;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #303030;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow:inset 0 0 10px #000000;
+}
+
+.likes-tittle{
+  //position: relative;
+  //top: -8px;
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.img-polaroid2 {
+  padding: 2px;
+  border: 1px solid #ccc;
+  clear: both;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-box-shadow: 0 0 6px #ddd;
+  -webkit-box-shadow: 0 0 6px #ddd;
+}
+
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comments{
+  overflow: hidden;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: rgb(51, 71, 70);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow:inset 0 0 10px #000000;
+}
+
+.liketitle{
+  display: block;
+  font: 15px Helvetica, Arial, Sans-Serif;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #a5a5a5;
+  text-shadow: 0px 1px 5px rgb(0, 0, 0);
+  top: 2px;
+  position: relative;
+  margin-top: -8px;
+  font-weight: bold;
+}
+
+.imgart{
+  max-width: 450px;
+}
+
+.centrado{
+  text-align: center;
+}
+
+.video{
+  width: 100%;
+  text-align: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.smile{
+  margin-bottom: 10px;
 }

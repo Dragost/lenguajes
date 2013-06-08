@@ -10,6 +10,7 @@
     <!-- Le styles -->
     <link href="<?php echo base_url('css/bootstrap.php'); ?>" rel="stylesheet"  type="text/css">
     <link href="<?php echo base_url('css/bootstrap-responsive.php'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('css/colorbox.php'); ?>" rel="stylesheet" type="text/css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,7 +38,7 @@
               <ul class="nav">
                 <li <?php echo ($this->uri->segment(1) == '') ? 'class="active"' : ''; ?>><a href="<?php echo base_url(); ?>">Novedades</a></li>
                 <li <?php echo ($this->uri->segment(1) == 'calendario') ? 'class="active"' : ''; ?>><a href="<?php echo base_url("calendario"); ?>">Calendario</a></li>
-                <li <?php echo ($this->uri->segment(1) == 'calendario') ? 'class="active"' : ''; ?>><a href="<?php echo base_url("calendario"); ?>">Historia</a></li>
+                <li <?php echo ($this->uri->segment(1) == 'historia') ? 'class="active"' : ''; ?>><a href="<?php echo base_url("historia"); ?>">Historia</a></li>
                 <li <?php echo ($this->uri->segment(1) == 'contacto') ? 'class="active"' : ''; ?>><a href="<?php echo base_url("contacto"); ?>">Contacto</a></li>
               </ul>
               <ul class="nav pull-right">
@@ -50,10 +51,6 @@
                       <img src="http://graph.facebook.com/<?=$this->session->userdata('logged_id');?>/picture?type=square"></img><?=$this->session->userdata('nombre');?><b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
                       <li><a href="<?php echo base_url('logout'); ?>">Logout</a></li>
                     </ul>
                   </li>
