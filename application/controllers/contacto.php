@@ -101,6 +101,7 @@ class Contacto extends CI_Controller {
 	function captcha_check(){
 
 	    $expiration = time()-3600; // Limite de 1 horas
+	    $this->Captcha->deleteCaptcha($expiration);
 	    $binds = array ($this->input->post('captcha'),$this->input->ip_address(),$expiration);
 	 
 	    return $this->Captcha->captchaExist($binds);

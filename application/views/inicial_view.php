@@ -13,7 +13,7 @@
           </div>
           <?php 
           $c = 0;
-          foreach ($facebook as $key => $value) { ?>
+          foreach ($facebook as $key => $value) : ?>
 
           <? if(isset($value['picture']) || isset($value['message']) || isset($value['link'])): ?>
               <article>
@@ -97,7 +97,7 @@
                               </div>
                             </div>
                           <? endforeach; //Fin Foreach LIKES?>
-                        <?php endif; ?>
+                        <? endif; ?>
 
 
                       </div> <? //Fin del contenedor gris ?>
@@ -106,11 +106,8 @@
                   </div>
                 </div>
               </article>
-            <?php endif; ?> 
-            <?
-
-          }
-          ?>
+            <? endif; ?> 
+          <? endforeach; ?>
 
 
         </div>

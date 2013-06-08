@@ -11,6 +11,7 @@
     <link href="<?php echo base_url('css/bootstrap.php'); ?>" rel="stylesheet"  type="text/css">
     <link href="<?php echo base_url('css/bootstrap-responsive.php'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('css/colorbox.php'); ?>" rel="stylesheet" type="text/css">
+    <link rel="alternate" type="application/rss+xml" href="<?=base_url('feed');?>">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

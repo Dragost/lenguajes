@@ -49,7 +49,10 @@
       	<div class="hero-unit">
       		<div class="padding20-foot">
 		        <p class="pull-right"><a href="#">Volver Arriba <i class="icon-chevron-up"></i></a></p>
-		        <p>&copy; 2013 Los Secretos de tu Almohada, 'Grupo Musical'.</p>
+		        <p>&copy; 2013 Los Secretos de tu Almohada, 'Grupo Musical'.
+		        	<a target="_blank" href="<?=base_url('feed');?>"><img class="rss" src="<?=base_url('img/feed-icon.png');?>"></a>
+		        </p>
+
 		    </div>
 	    </div>
       </footer>
@@ -176,6 +179,16 @@
 			$(".lightbox").colorbox({transition:'none', retinaImage:true, retinaUrl:true});
 
 		});
+	</script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-26505234-2', 'dragost.com');
+	  ga('send', 'pageview');
 	</script>
     <script src="<?php echo base_url('js/holder/holder.js'); ?>"></script>
   </body>
