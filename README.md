@@ -6,18 +6,18 @@ Autor: Alberto Punter
 Descripción: Web creada en HTML5 con Metadatos y RSS.
 
 
-Funcionalidades
+Funcionalidades V1
 ---------------
 
 * Mostrar novedades de una página de Facebook pre-configurada.
 * Mostrar novedades de una cuenta de Twitter pre-configurada.
 * Informar de nuevos Eventos a través del Google Calendar.
 * Dar posibilidad a contacto con Administradores.
-* Sistema de Gestión "Back-End" solo accesible por Administradores.
-* 
+
 
 Instalación
 -----------
 
-* {Under Construction}
+* Editar configuraciones necesarias en:
+* * /application/config/
 
