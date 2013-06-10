@@ -19,5 +19,8 @@ Instalación
 -----------
 
 * Editar configuraciones necesarias en:
-* * /application/config/
+* /application/config/
 
+
+Preview Temporal:
+-----------------
