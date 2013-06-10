@@ -13,9 +13,9 @@ class Feed extends CI_Controller {
  
     function index() {
         $datos['encoding'] = 'utf-8';
-        $datos['nombre_feed'] = 'Feed de Prueba';
+        $datos['nombre_feed'] = 'Los Secretos de tu Almohada';
         $datos['url_feed'] = base_url("feed");
-        $datos['descripcion'] = 'Descripción para el Feed';
+        $datos['descripcion'] = 'Ultimas novedades del Grupo: Los Secretos de tu Almohada';
         $datos['lenguaje'] = 'es-ES';
         $datos['autor'] = 'Alberto Punter';
         $datos['articulos'] = "";

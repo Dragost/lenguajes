@@ -13,6 +13,7 @@
           </div>
           <?php 
           $c = 0;
+          $cg = 0;
           foreach ($facebook as $key => $value) : ?>
 
           <? if(isset($value['picture']) || isset($value['message']) || isset($value['link'])): ?>
@@ -31,16 +32,42 @@
                           <h4 class="pull-right">Hace <?=time_elapsed($value['created_time']);?></h4>
                         </div>
                         <div style="overflow: hidden; margin-bottom: 15px;">
-                          <?php if(isset($value['picture']) && $value['type'] != 'video'): ?>
-                            <div class="<?=(is_float($c/2)) ? 'float_left' : 'float_right'; ?>">
-                              <a class="lightbox" href="<?=$value['picture'];?>">
-                                <img class="img-polaroid imgart" src="<?=$value['picture'];?>">
-                              </a>
-                            </div>
-                              <? if (isset($value['message'])): ?>
-                                <div class="padding10 float_left"><p> <?=$value['message'];?></p></div>
-                              <? endif; ?>
-                            <? $c++; ?>
+                          <?php if(isset($value['picture']) && $value['type'] != 'video' ): ?>
+
+                            <? if(isset($gallery[$value['id']])):?>
+
+                              <div class="gal">
+                                <? if(count($gallery[$value['id']]['photos']['data'])>1):?>
+                                  <? foreach($gallery[$value['id']]['photos']['data'] as $keyimg => $valueimg):?>
+                                    
+                                    <a class="group<?=$cg?> cboxElement" href="<?=$valueimg['source'];?>">
+                                      <img class="img-polaroid imggal" src="<?=$valueimg['images'][5]['source'];?>">
+                                    </a>
+                                    
+                                  <? endforeach;?>
+                                <? endif; ?>
+
+                                
+
+                              </div>
+
+                              <? $cg++; ?>
+
+                            <? else: ?>
+
+                              <div class="<?=(is_float($c/2)) ? 'float_left' : 'float_right'; ?>">
+                                <a class="lightbox" href="<?=$value['picture'];?>">
+                                  <img class="img-polaroid imgart" src="<?=$value['picture'];?>">
+                                </a>
+                              </div>
+                              <? $c++; ?>
+
+                            <? endif; ?>
+
+                            <? if (isset($value['message'])): ?>
+                              <div class="padding10 float_left"><p> <?=$value['message'];?></p></div>
+                            <? endif; ?>
+
 
                           <?php elseif($value['type'] == 'video'): ?>
                             <div class="video-container">

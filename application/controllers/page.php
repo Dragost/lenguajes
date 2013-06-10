@@ -35,6 +35,10 @@ class Page extends CI_Controller {
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
 
         $this->pagination->initialize($config);
  
@@ -66,19 +70,37 @@ class Page extends CI_Controller {
 	
 		$this->load->library("facebook", $config);
 
-		return $this->facebook->api('225517524253746/posts?fields=from,picture,source,link,actions,type,object_id,updated_time,likes,comments,message&locale=es_ES'); //225517524253746/posts?limit=10&since=1362850368&locale=es_ES
+		return $this->facebook->api('225517524253746/posts?fields=from,picture,source,link,actions,type,status_type,caption,object_id,updated_time,likes,comments,message&limit=50&locale=es_ES'); //225517524253746/posts?limit=10&since=1362850368&locale=es_ES
 	}
 
 
 	private function stimage($datos) {
 
 		foreach ($datos['facebook'] as $key => &$value) { //Añadiendo '&' delante del value editamos el Array original
+			// Modificar Imagenes para que salgan grandes
 			if(isset($value['picture'])){
 
 				if(substr($value['picture'], strlen($value['picture'])-5) == "s.jpg"){
 
 					$value['picture'] = substr($value['picture'], 0, -5)."n.jpg";
 					
+				}
+
+			}	
+
+			// Crear arrays de galerias
+			if(isset($value['status_type']) && $value['status_type'] == "added_photos"){
+				
+				$a = $value['link'];
+				$b = explode("set=", $a);
+				$c = explode(".", $b[1]);
+
+				$d = $this->facebook->api($c[1]."?fields=photos");
+
+				if(count($d['photos']['data']) > 1){
+
+					$datos["gallery"][$value['id']] = $this->facebook->api($c[1]."?fields=photos");
+
 				}
 
 			}

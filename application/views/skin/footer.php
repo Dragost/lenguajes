@@ -177,6 +177,16 @@
 		$(document).ready(function(){
 			//Examples of how to assign the Colorbox event to elements
 			$(".lightbox").colorbox({transition:'none', retinaImage:true, retinaUrl:true});
+			$(".group1").colorbox({rel:'group1'});
+			$(".group2").colorbox({rel:'group2'});
+			$(".group3").colorbox({rel:'group3'});
+			$(".group4").colorbox({rel:'group4'});
+			$(".group5").colorbox({rel:'group5'});
+			$(".group6").colorbox({rel:'group6'});
+			$(".group7").colorbox({rel:'group7'});
+			$(".group8").colorbox({rel:'group8'});
+			$(".group9").colorbox({rel:'group9'});
+			$(".group0").colorbox({rel:'group0'});
 
 		});
 	</script>

@@ -6341,6 +6341,15 @@ div.foot{
   max-width: 450px;
 }
 
+.imggal{
+  height: 150px;
+
+}
+
+.gal{
+  text-align: center;
+}
+
 .centrado{
   text-align: center;
 }
