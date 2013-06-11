@@ -104,6 +104,19 @@ class Page extends CI_Controller {
 				}
 
 			}
+
+
+			if(isset($value['link']) && strpos($value['link'], "http://www.facebook.com/events/") !== false){
+
+				$a1 = $value['link'];
+				$b1 = $b = explode("/", $a1);
+				$c1 = $b[4];
+
+				$datos["event"][$value['id']] = $this->facebook->api($c1."?fields=owner,name,description,start_time,location,picture.type(large)");
+
+			}
+
+
 		}
 
 		return $datos;

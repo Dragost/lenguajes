@@ -166,6 +166,7 @@
     <script src="<?php echo base_url('js/bootstrap-carousel.js'); ?>"></script>
     <script src="<?php echo base_url('js/bootstrap-typeahead.js'); ?>"></script>
     <script src="<?php echo base_url('js/jquery.colorbox-min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/jquery.colorbox-es.js'); ?>"></script>
 
     <script type="text/javascript">
 	    $(function () {

@@ -69,7 +69,8 @@
                             <? endif; ?>
 
 
-                          <?php elseif($value['type'] == 'video'): ?>
+                          <?php elseif($value['type'] == 'video'):  //VIDEOS  ?>
+
                             <div class="video-container">
                               <? preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $value['link'], $url);?>
                               <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<?=$url[0];?>?theme=light" frameborder="0" allowfullscreen></iframe>
@@ -77,20 +78,33 @@
                               <? if (isset($value['message'])): ?>
                                 <div class="padding10 centrado"><p> <?=$value['message'];?></p></div>
                               <? endif; ?>
+
                           <?php else: ?>
+
                             <div class="padding20">
                               <? if (isset($value['message'])): ?>
                                 <p> <?=$value['message'];?></p>
                               <? elseif (isset($value['link'])): ?>
-                                <p><a href="<?=$value['link'];?>"> <?=$value['link'];?> </a></p>
+                                <? if (isset($event[$value['id']])): //EVENTOS ?>
+                                  <div class="float_left">
+                                    <a href="<?=$value['link'];?>">
+                                      <img class="img-polaroid imgart float_left imgeve" name="<?=$event[$value['id']]['name'];?>" src="<?=$event[$value['id']]['picture']['data']['url'];?>">
+                                    </a>
+                                    <p><h3><strong class="eve">Evento:</strong> <?=$event[$value['id']]['name'];?></h3></p>
+                                    <p><strong class="eve">Descripción:</strong> <?=$event[$value['id']]['description'];?></p>
+                                    <p><strong class="eve">Fecha:</strong> <?=date("d/m/Y H:i",strtotime($event[$value['id']]['start_time']));?></p>
+                                    <p><a target="_blank" class="btn btn-success" href="<?=$value['link'];?>">Ir al Evento</a></p>
+                                  </div>
+                                <? endif; ?>
                               <? endif; ?>
                             </div>
+
                           <?php endif; ?>
 
                         </div>
 
                         <? // LIKES ?>
-                        <?php if(isset($value['likes'])): ?>
+                        <?php if(isset($value['likes'])):  //LIKES  ?>
                           <div class="likes">
                             <div class="liketitle"><?=count($value['likes']['data']);?> LIKES:</div>
                             <? foreach ($value['likes']['data'] as $keylikes => $valuelikes): //Inicio Foreach LIKES?>
@@ -103,7 +117,7 @@
 
 
                         <? // COMMENTS ?>
-                        <?php if(isset($value['comments'])): ?>
+                        <?php if(isset($value['comments'])):  //COMENTARIOS  ?>
                           <? foreach ($value['comments']['data'] as $keycom => $valuecom): //Inicio Foreach COMMENTS?>
                             <div class="comments">
                               <? if($keycom == 0): ?><div class="liketitle">COMENTARIOS:</div><? endif; ?>

@@ -6389,3 +6389,11 @@ div.foot{
   border-radius: 5px;
   box-shadow:inset 0 0 10px #000000;
 }
+
+.imgeve{
+  margin-right: 15px;
+}
+
+strong.eve{
+  color: rgb(105, 161, 233);
+}
