@@ -6392,6 +6392,7 @@ div.foot{
 
 .imgeve{
   margin-right: 15px;
+  max-width: 240px;
 }
 
 strong.eve{

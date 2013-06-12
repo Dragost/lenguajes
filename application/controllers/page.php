@@ -105,7 +105,7 @@ class Page extends CI_Controller {
 
 			}
 
-
+			// Crear arrays de eventos
 			if(isset($value['link']) && strpos($value['link'], "http://www.facebook.com/events/") !== false){
 
 				$a1 = $value['link'];

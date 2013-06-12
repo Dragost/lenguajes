@@ -76,6 +76,9 @@
                               <? if(strpos($value['link'], "http://youtu.be/") !== false):  //YOUTUBE ?>
                                 <? preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $value['link'], $url);?>
                                 <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<?=$url[0];?>?theme=light" frameborder="0" allowfullscreen></iframe>
+                              <? elseif(strpos($value['link'], "http://www.youtube.com/watch?v=") !== false):  //YOUTUBE OLD ?>
+                                <? parse_str( parse_url( $value['link'], PHP_URL_QUERY ), $video_id );?>
+                                <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/<?=$video_id['v'];?>?theme=light" frameborder="0" allowfullscreen></iframe>
                               <? elseif (strpos($value['link'], "http://vimeo.com/") !== false):  //VIMEO ?>
                                 <? sscanf(parse_url($value['link'], PHP_URL_PATH), '/%d', $video_id); ?>
                                 <iframe id="ytplayer" src="http://player.vimeo.com/video/<?=$video_id;?>?portrait=0&color=c6b199" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
@@ -95,7 +98,7 @@
                                 <? if (isset($event[$value['id']])): //EVENTOS ?>
                                   <div class="float_left">
                                     <a href="<?=$value['link'];?>">
-                                      <img class="img-polaroid imgart float_left imgeve" name="<?=$event[$value['id']]['name'];?>" src="<?=$event[$value['id']]['picture']['data']['url'];?>">
+                                      <img class="img-polaroid float_left imgeve" name="<?=$event[$value['id']]['name'];?>" src="<?=$event[$value['id']]['picture']['data']['url'];?>">
                                     </a>
                                     <p><h3><strong class="eve">Evento:</strong> <?=$event[$value['id']]['name'];?></h3></p>
                                     <p><strong class="eve">Descripción:</strong> <?=$event[$value['id']]['description'];?></p>
