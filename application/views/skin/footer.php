@@ -91,7 +91,7 @@
 				FB.api('/me', function(response) {
 					user_email = response.email; //get user email
 					if(user_email == null) {
-					  alert("Necesitamos tu correo electr?nico para realizar una conexi?n!"); 
+					  alert("Necesitamos tu correo electrónico para realizar una conexión!"); 
 					} else {
 						$('#dr_login').html('<a>Cargando...</a>');
 					  AjaxResponse();

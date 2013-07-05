@@ -142,7 +142,7 @@ return preg_replace('#(^|\s)(http://([a-zA-Z0-9\-.]?[a-zA-Z0-9?+%~&=_/-])*)#is',
                           <div class="likes">
                             <div class="liketitle"><?=count($value['likes']['data']);?> LIKES:</div>
                             <? foreach ($value['likes']['data'] as $keylikes => $valuelikes): //Inicio Foreach LIKES?>
-                              <a class="float_left" style="margin: 0 5px;" href="http://facebook.com/<?=$valuelikes['id'];?>" target="_blank" rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="<?=$valuelikes['name'];?>" data-original-title="Tooltip on bottom">
+                              <a class="float_left" style="margin: 0 5px;" href="http://facebook.com/<?=$valuelikes['id'];?>" target="_blank" rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="<?=$valuelikes['name'];?>" data-original-title="Tooltip">
                                 <img src="http://graph.facebook.com/<?=$valuelikes['id'];?>/picture?type=square" tittle="<?=$valuelikes['name'];?>">
                               </a>
                             <? endforeach; //Fin Foreach LIKES?>
@@ -159,7 +159,9 @@ return preg_replace('#(^|\s)(http://([a-zA-Z0-9\-.]?[a-zA-Z0-9?+%~&=_/-])*)#is',
 
                                 <div style="overflow: hidden; margin-bottom: 15px;">
                                   <div style="float: left;">
-                                    <img style="float:left;" src="http://graph.facebook.com/<?=$valuecom['from']['id'];?>/picture?type=square" tittle="<?=$valuecom['from']['name'];?>">
+                                  	<a class="float_left" style="margin: 0 5px;" href="http://facebook.com/<?=$valuecom['from']['id'];?>" target="_blank" rel="tooltip" data-toggle="tooltip" data-placement="right" title="<?=$valuecom['from']['name'];?>" data-original-title="Tooltip">
+                                    	<img style="float:left;" src="http://graph.facebook.com/<?=$valuecom['from']['id'];?>/picture?type=square" tittle="<?=$valuecom['from']['name'];?>">
+                                    </a>
                                   </div>
                                   <div style="float: left; margin-left: 20px;">
                                     <h4 style="float:left;"><?=$valuecom['from']['name'];?></h4>
