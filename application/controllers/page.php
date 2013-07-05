@@ -52,6 +52,7 @@ class Page extends CI_Controller {
         	$data["facebook"] = $partido[0];
        	}
 
+       	$data["instagram"] = "228020290670136"; //ID Galeria del Instagram para no mostrar galeria
         $data["links"] = $this->pagination->create_links();
 
 
@@ -95,12 +96,14 @@ class Page extends CI_Controller {
 				$b = explode("set=", $a);
 				$c = explode(".", $b[1]);
 
-				$d = $this->facebook->api($c[1]."?fields=photos");
+				if($c[1] != $datos['instagram']){
+					$d = $this->facebook->api($c[1]."?fields=photos");
 
-				if(count($d['photos']['data']) > 1){
+					if(count($d['photos']['data']) > 1){
 
-					$datos["gallery"][$value['id']] = $this->facebook->api($c[1]."?fields=photos");
+						$datos["gallery"][$value['id']] = $this->facebook->api($c[1]."?fields=photos");
 
+					}
 				}
 
 			}
