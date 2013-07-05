@@ -1,5 +1,14 @@
 <?php require_once('skin/header.php'); ?>
 
+<?php 
+
+function URLr($a) {
+return preg_replace('#(^|\s)(http://([a-zA-Z0-9\-.]?[a-zA-Z0-9?+%~&=_/-])*)#is', '\\1<a href="\\2" target="_blank">\\2</a><br>', $a);
+}
+
+
+?>
+
 
 	<section>
   	<div class="container">
@@ -36,20 +45,35 @@
 
                             <? if(isset($gallery[$value['id']])):?>
 
-                              <div class="gal">
+                              <div class="gal"> <? //Inicio Galeria ?>
                                 <? if(count($gallery[$value['id']]['photos']['data'])>1):?>
                                   <? foreach($gallery[$value['id']]['photos']['data'] as $keyimg => $valueimg):?>
                                     
+
+                                  	<? if($keyimg==5):?>
+                                    	<div class="margin10top margin10bot">
+                                    		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#images">
+											  <?=count($gallery[$value['id']]['photos']['data'])-5;?> Fotos Más...
+											</button>
+                                    	</div>
+                                    	<div id="images" class="collapse"> 
+                                	<? endif; ?>
+
                                     <a class="group<?=$cg?> cboxElement" href="<?=$valueimg['source'];?>">
                                       <img class="img-polaroid imggal" src="<?=$valueimg['images'][5]['source'];?>">
                                     </a>
+
+                                    <? if($keyimg==count($gallery[$value['id']]['photos']['data'])):?>
+                                    	</div>
+                                    <? endif; ?>
                                     
+
                                   <? endforeach;?>
                                 <? endif; ?>
 
                                 
 
-                              </div>
+                              </div> <? //Fin Galeria ?>
 
                               <? $cg++; ?>
 
@@ -65,7 +89,7 @@
                             <? endif; ?>
 
                             <? if (isset($value['message'])): ?>
-                              <div class="padding10 float_left"><p> <?=$value['message'];?></p></div>
+                              <div class="padding10 float_left"><p> <?=URLr($value['message']);?></p></div>
                             <? endif; ?>
 
 
@@ -93,7 +117,7 @@
 
                             <div class="padding20">
                               <? if (isset($value['message'])): ?>
-                                <p> <?=$value['message'];?></p>
+                                <p> <?=URLr($value['message']);?></p>
                               <? elseif (isset($value['link'])): ?>
                                 <? if (isset($event[$value['id']])): //EVENTOS ?>
                                   <div class="float_left">

@@ -6228,6 +6228,10 @@ a.badge:focus {
   padding: 10px 20px 10px;
 }
 
+.margin10top{
+  margin-top: 10px;
+}
+
 .margin10bot{
   margin-bottom: 10px;
 }
@@ -6272,6 +6276,7 @@ div.foot{
 
 .likes{
   overflow: hidden;
+  margin-top: 10px;
   margin-bottom: 15px;
   padding: 10px;
   background: #303030;

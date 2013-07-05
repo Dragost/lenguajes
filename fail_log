@@ -1,0 +1,7 @@
+[Wed Jul 03 21:59:42 2013] [error] [client 85.55.193.55] PHP Fatal error:  Uncaught OAuthException: (#602) fromid is not a member of the text object.\n  thrown in /var/www/html/dragost/api/lenguajes/application/libraries/base_facebook.php on line 1271
+[Thu Jul 04 10:15:40 2013] [error] [client 81.45.53.156] PHP Fatal error:  Uncaught OAuthException: (#602) user_id is not a member of the user_id object.\n  thrown in /var/www/html/dragost/api/lenguajes/application/libraries/base_facebook.php on line 1271
+[Fri Jul 05 16:59:45 2013] [error] [client 80.26.225.182] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /var/www/html/dragost/api/lenguajes/application/views/inicial_view.php on line 47
+[Fri Jul 05 17:30:44 2013] [error] [client 80.26.225.182] PHP Fatal error:  Cannot redeclare link() in /var/www/html/dragost/api/lenguajes/application/views/inicial_view.php on line 9
+[Fri Jul 05 18:06:10 2013] [error] [client 80.26.225.182] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/dragost/api/lenguajes/application/views/inicial_view.php on line 207
+[Fri Jul 05 18:07:05 2013] [error] [client 80.26.225.182] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/dragost/api/lenguajes/application/views/inicial_view.php on line 207
+[Fri Jul 05 18:07:24 2013] [error] [client 80.26.225.182] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/dragost/api/lenguajes/application/views/inicial_view.php on line 207
