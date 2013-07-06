@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link href="<?php echo base_url('img/favicon.ico'); ?>" rel="icon" type="image/x-icon" />
+
     <!-- Le styles -->
     <link href="<?php echo base_url('css/bootstrap.php'); ?>" rel="stylesheet"  type="text/css">
     <link href="<?php echo base_url('css/bootstrap-responsive.php'); ?>" rel="stylesheet" type="text/css">

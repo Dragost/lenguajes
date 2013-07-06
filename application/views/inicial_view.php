@@ -51,24 +51,27 @@ return preg_replace('#(^|\s)(http://([a-zA-Z0-9\-.]?[a-zA-Z0-9?+%~&=_/-])*)#is',
                                     
 
                                   	<? if($keyimg==5):?>
-                                    	<div class="margin10top margin10bot">
-                                    		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#images">
-											  <?=count($gallery[$value['id']]['photos']['data'])-5;?> Fotos Más...
-											</button>
-                                    	</div>
-                                    	<div id="images" class="collapse"> 
+                                    	<div id="images<?=$key;?>" class="collapse"> 
                                 	<? endif; ?>
 
                                     <a class="group<?=$cg?> cboxElement" href="<?=$valueimg['source'];?>">
                                       <img class="img-polaroid imggal" src="<?=$valueimg['images'][5]['source'];?>">
                                     </a>
 
-                                    <? if($keyimg==count($gallery[$value['id']]['photos']['data'])):?>
+                                    <? if($keyimg==count($gallery[$value['id']]['photos']['data'])-1):?>
                                     	</div>
                                     <? endif; ?>
-                                    
 
                                   <? endforeach;?>
+
+                                  <? if(count($gallery[$value['id']]['photos']['data'])>5):?>
+                                    <div class="margin10top margin10bot">
+                                    	<button id="btnGaleryMore" type="button" class="btn btn-danger" data-toggle="collapse" data-target="#images<?=$key;?>">
+											<?=count($gallery[$value['id']]['photos']['data'])-5;?> Fotos Más...
+										</button>
+                                    </div>
+                                  <? endif; ?>
+
                                 <? endif; ?>
 
                                 
